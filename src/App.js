@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navigation from "./layout/navigation/Navigation";
+import Footer from "./layout/Footer";
 import Landing from "./pages/Landing";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
@@ -22,24 +23,27 @@ function App() {
   };
   return (
     <Router>
-      <Navigation handleModal={handleModal} />
-      {showModal ? (
-        <motion.div
-          initial={{ y: 500, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          exit={{ opacity: 0 }}
-        >
-          <Modal navList={navList} />
-        </motion.div>
-      ) : (
-        <Switch>
-          <Route exact path="/" component={Landing} />
-          <Route exact path="/about" component={About} />
-          <Route exact path="/initiatives" component={Initiatives} />
-          <Route exact path="/contact" component={Contact} />
-        </Switch>
-      )}
+      <div className="flex flex-col w-screen">
+        <Navigation handleModal={handleModal} />
+        {showModal ? (
+          <motion.div
+            initial={{ y: 500, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            exit={{ opacity: 0 }}
+          >
+            <Modal navList={navList} />
+          </motion.div>
+        ) : (
+          <Switch>
+            <Route exact path="/" component={Landing} />
+            <Route exact path="/about" component={About} />
+            <Route exact path="/initiatives" component={Initiatives} />
+            <Route exact path="/contact" component={Contact} />
+          </Switch>
+        )}
+        <Footer />
+      </div>
     </Router>
   );
 }

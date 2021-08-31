@@ -2,7 +2,18 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div>
+    <div className=" flex ">
+      <h1>footer</h1>
+      <h1>footer</h1>
+      <h1>footer</h1>
+      <h1>footer</h1>
+      <h1>footer</h1>
+      <h1>footer</h1>
+      <h1>footer</h1>
+      <h1>footer</h1>
+      <h1>footer</h1>
+      <h1>footer</h1>
+      <h1>footer</h1>
       <h1>footer</h1>
     </div>
   );

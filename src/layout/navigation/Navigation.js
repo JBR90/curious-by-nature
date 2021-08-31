@@ -4,9 +4,9 @@ import Modal from "./Modal";
 
 const navList = [
   { id: 1, title: "About", path: "/about" },
-  { id: 2, title: "Resources", path: "/resources" },
-  { id: 3, title: "Team", path: "/team" },
-  { id: 4, title: "Login", path: "/login" },
+  { id: 2, title: "Events", path: "/events" },
+  { id: 3, title: "Links", path: "/links" },
+  { id: 4, title: "Contact", path: "/Contact" },
 ];
 const Navigation = ({ handleModal }) => {
   const [navOpen, setNavOpen] = useState(false);
@@ -17,7 +17,7 @@ const Navigation = ({ handleModal }) => {
   };
 
   return (
-    <div className="fixed z-50 w-screen">
+    <div className="absolute z-50 w-screen">
       <Navbar
         navList={navList}
         handleHamburger={handleHamburger}
