@@ -66,7 +66,7 @@ plan for saving the planet’s most exceptional wild places.`}
         </div>
         {/* --------------------------------------------------------------------------------// Text + Image section 2 // */}
         <div className="w-full bg-white my-8">
-          <div className=" sm:justify-center lg:w-4/5 m-auto px-4 py-10 grid grid-cols-2">
+          <div className=" sm:justify-center lg:w-4/5 m-auto  py-10 grid grid-cols-2">
             <div className="flex flex-col justify-center px-4">
               <h1 className="  bottom-56  w-full text-black text-3xl font-semibold mb-4  lg:text-4xl">
                 Changing the world is possible. We’ve done it before.
