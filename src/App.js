@@ -22,9 +22,10 @@ function App() {
     setShowModal(!showModal);
   };
   return (
-    <Router>
-      <div className="flex flex-col w-screen">
+    <div>
+      <Router>
         <Navigation handleModal={handleModal} />
+
         {showModal ? (
           <motion.div
             initial={{ y: 500, opacity: 0 }}
@@ -42,9 +43,8 @@ function App() {
             <Route exact path="/contact" component={Contact} />
           </Switch>
         )}
-        <Footer />
-      </div>
-    </Router>
+      </Router>
+    </div>
   );
 }
 

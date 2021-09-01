@@ -1,6 +1,7 @@
 import React from "react";
 import hero from "../images/annie-spratt-GIK1tsETnXI-unsplash.jpg";
 import landingPic1 from "../images/anna-samoylova-w55SpMmoPgE-unsplash.jpg";
+import Footer from "../layout/Footer";
 
 const Landing = () => {
   return (
@@ -79,7 +80,7 @@ plan for saving the planet’s most exceptional wild places.`}
                 Learn More
               </button>
             </div>
-            <div className="flex    ">
+            <div className="flex  px-4  ">
               <img
                 className="object-cover   overflow-hidden   w-11/12  "
                 src={landingPic1}
@@ -88,6 +89,7 @@ plan for saving the planet’s most exceptional wild places.`}
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     </div>
   );
