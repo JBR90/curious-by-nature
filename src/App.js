@@ -5,7 +5,7 @@ import Footer from "./layout/Footer";
 import Landing from "./pages/Landing";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
-import Initiatives from "./pages/Initiatives";
+import Events from "./pages/Events";
 import Modal from "./layout/navigation/Modal";
 import { motion } from "framer-motion";
 
@@ -39,7 +39,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Landing} />
             <Route exact path="/about" component={About} />
-            <Route exact path="/initiatives" component={Initiatives} />
+            <Route exact path="/events" component={Events} />
             <Route exact path="/contact" component={Contact} />
           </Switch>
         )}
