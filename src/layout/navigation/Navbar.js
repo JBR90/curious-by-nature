@@ -1,6 +1,6 @@
 import React from "react";
 import NavLinks from "./NavLinks";
-import { useLocation } from "react-router-dom";
+import { useLocation, NavLink } from "react-router-dom";
 
 const Navbar = ({ navList, handleHamburger, navOpen }) => {
   console.log(navOpen);
@@ -27,16 +27,18 @@ const Navbar = ({ navList, handleHamburger, navOpen }) => {
           </div>
           <div class=" hidden sm:block  invisible sm:visible sm:mr-20 mr-0 ">
             {navList.map((navItem) => (
-              <a
-                href={navItem.path}
+              <NavLink
+                exact={true}
+                activeClassName="is-active"
+                to={navItem.path}
                 key={navItem.id}
                 alt={navItem.name}
-                class={
+                className={
                   "text-lg no-underline hover:underline  hover:text-blue-dark px-4 "
                 }
               >
                 {navItem.title}
-              </a>
+              </NavLink>
             ))}
           </div>
 
