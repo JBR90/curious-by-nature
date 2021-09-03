@@ -29,7 +29,7 @@ export const events = [
     DateEnd: "20/03/2021",
     Time: "11:35am - 12:35pm",
     description:
-      "pretium iaculis diam er sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero",
+      "pretium iaculis di d am er sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero",
     image: "http://dummyimage.com/164x100.png/cc0000/ffffff",
   },
   {
