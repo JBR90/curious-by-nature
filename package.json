@@ -2,6 +2,9 @@
   "name": "curious-by-nature",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=12.22.2"
+  },
   "dependencies": {
     "@craco/craco": "^6.2.0",
     "@testing-library/jest-dom": "^5.11.4",
