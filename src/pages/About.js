@@ -72,14 +72,7 @@ plan for saving the planet’s most exceptional wild places.`}
           {/* --------------------------------------------------------------------------------// Text + Image section 2 // */}
           <div className="w-full bg-white my-8">
             <div className=" sm:justify-center lg:w-4/5 m-auto px-4  grid grid-cols-1 sm:grid-cols-2">
-              <div className="flex justify-center   ">
-                <img
-                  className="object-cover   overflow-hidden   w-11/12  "
-                  src={landingPic1}
-                  alt=""
-                />
-              </div>
-              <div className="flex flex-col justify-center px-4">
+              <div className="flex flex-col justify-center px-4 order-2 md:order-1">
                 <h1 className="  text-center sm:text-left mt-4  bottom-56  w-full text-black text-3xl font-semibold mb-4  lg:text-4xl">
                   Self-directed education
                 </h1>
@@ -103,6 +96,13 @@ plan for saving the planet’s most exceptional wild places.`}
                 {/* <button className="bg-black text-white w-32 hover:bg-opacity:20 text-grey-700 font-semibold  py-2 px-4 mt-4  rounded ">
                   Learn More
                 </button> */}
+              </div>
+              <div className="flex justify-center order-1 md-order-2  ">
+                <img
+                  className="object-cover   overflow-hidden   w-11/12  "
+                  src={landingPic1}
+                  alt=""
+                />
               </div>
             </div>
           </div>
