@@ -1,6 +1,7 @@
 import React from "react";
 import NavLinks from "./NavLinks";
 import { useLocation, NavLink } from "react-router-dom";
+import { indigo } from "tailwindcss/colors";
 
 const Navbar = ({
   navList,
@@ -15,8 +16,10 @@ const Navbar = ({
 
   const handleModalClose = () => {
     console.log("clcikc");
-    setNavOpen(false);
-    handleModal();
+    if (navOpen) {
+      handleModal();
+      setNavOpen(false);
+    }
   };
 
   return (
