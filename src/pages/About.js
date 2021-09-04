@@ -2,6 +2,7 @@ import React from "react";
 import Footer from "../layout/Footer";
 import hero from "../images/chang-duong-KrfID_ZQxWs-unsplash.jpg";
 import landingPic1 from "../images/anna-samoylova-w55SpMmoPgE-unsplash.jpg";
+import fullScreenPic from "../images/joel-jasmin-forestbird-xzPMUMDDsfk-unsplash.jpg";
 
 const About = () => {
   return (
@@ -106,6 +107,32 @@ plan for saving the planet’s most exceptional wild places.`}
               </div>
             </div>
           </div>
+          <div className="flex justify-center relative bg-background-light w-full h-3/4 ">
+            <img
+              className="object-cover opacity-60 object-center
+              overflow-hidden   w-screen h-full"
+              src={fullScreenPic}
+              alt=""
+            />
+            <div className=" m-auto absolute inset-0 text-center  w-full  lg:w-4/5 flex items-center ">
+              <p className=" text-white lg:text-2xl xl:text-3xl">
+                Curious by Nature’s play and learning activities will develop
+                the community’s environmental awareness and increase their
+                knowledge of local plant and animal habitats. They will benefit
+                from sustainable living experiences and be aware of tools and
+                resources to reduce the carbon footprint of their daily life.
+              </p>
+            </div>
+          </div>
+          {/* <div className="absolute top-3/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bottom-56  w-full  lg:w-4/5 py-4 px-4  ">
+            <p className=" whitespace-pre-wrap  bottom-56  w-full text-white text-4xl ">
+              {`Protecting natural habitats
+from extinction.`}
+            </p>
+            <button className="bg-white hover:bg-opacity:20 text-grey-700 font-semibold  py-2 px-4 mt-4  rounded">
+              Learn More
+            </button>
+          </div> */}
           <Footer />
         </div>
       </div>
