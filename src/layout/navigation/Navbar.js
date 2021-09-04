@@ -2,10 +2,22 @@ import React from "react";
 import NavLinks from "./NavLinks";
 import { useLocation, NavLink } from "react-router-dom";
 
-const Navbar = ({ navList, handleHamburger, navOpen }) => {
+const Navbar = ({
+  navList,
+  handleHamburger,
+  handleModal,
+  navOpen,
+  setNavOpen,
+}) => {
   console.log(navOpen);
   const setLocation = useLocation();
   console.log(setLocation.pathname);
+
+  const handleModalClose = () => {
+    console.log("clcikc");
+    setNavOpen(false);
+    handleModal();
+  };
 
   return (
     <>
@@ -19,6 +31,7 @@ const Navbar = ({ navList, handleHamburger, navOpen }) => {
         <div className="lg:w-4/5 m-auto   flex flex-row justify-between text-center py-8 px-4   items-baseline w-full">
           <div class="transform transition duration-500 hover:scale-105">
             <NavLink
+              onClick={(e) => handleModalClose()}
               to="/"
               className=" sm:text-2xl  text-1xl   hover:text-blue-dark transform transition duration-500 hover:scale-110"
             >

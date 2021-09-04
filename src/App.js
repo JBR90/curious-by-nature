@@ -11,9 +11,9 @@ import { motion } from "framer-motion";
 
 const navList = [
   { id: 1, title: "About", path: "/about" },
-  { id: 2, title: "Resources", path: "/resources" },
-  { id: 3, title: "Team", path: "/team" },
-  { id: 4, title: "Login", path: "/login" },
+  { id: 2, title: "Events", path: "/events" },
+  { id: 3, title: "Links", path: "/links" },
+  { id: 4, title: "Contact", path: "/Contact" },
 ];
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
   return (
     <div>
       <Router>
-        <Navigation handleModal={handleModal} />
+        <Navigation handleModal={handleModal} navList={navList} />
 
         {showModal ? (
           <motion.div
