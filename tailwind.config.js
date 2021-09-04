@@ -15,6 +15,7 @@ module.exports = {
       yellow: colors.amber,
       background: {
         light: "#A8AAA5",
+        green: "#F2EBD1",
       },
     },
     extend: {
