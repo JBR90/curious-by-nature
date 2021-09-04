@@ -26,7 +26,18 @@ const Events = () => {
       {" "}
       <div className="      w-screen h-screen  ">
         <div className="   w-full py-20  h-2/4 ">
-          {currentEvents.map((e) => (e = <Event key={e.id} props={e} />))}
+          <div className="w-full  text-center">
+            <h1 className="text-4xl mt-16 mb-5">Current Events</h1>
+          </div>
+          {currentEvents.map(
+            (e) => (e = <Event key={e.id} props={e} past={false} />)
+          )}
+          <div className="w-full  text-center">
+            <h1 className="text-4xl m-10">Past Events</h1>
+          </div>
+          {pastEvents.map(
+            (e) => (e = <Event key={e.id} props={e} past={true} />)
+          )}
 
           <Footer />
         </div>

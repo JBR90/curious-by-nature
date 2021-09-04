@@ -1,8 +1,8 @@
 import React from "react";
 
-const Event = ({ props }) => {
+const Event = ({ props, past }) => {
   return (
-    <div className="w-full bg-white ">
+    <div className={`w-full bg-white ${past ? "opacity-50" : ""}  `}>
       <div className=" sm:justify-center lg:w-4/5 m-auto px-4 py-10 grid grid-cols-1 md:grid-cols-2">
         <div className="flex order-1 md:order-1 justify-center  ">
           <img
