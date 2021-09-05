@@ -7,13 +7,14 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Events from "./pages/Events";
 import Modal from "./layout/navigation/Modal";
+import ScrollToTop from "./components/helpers/ScrollToTop";
 import { motion } from "framer-motion";
 
 const navList = [
   { id: 1, title: "About", path: "/about" },
   { id: 2, title: "Events", path: "/events" },
   { id: 3, title: "Links", path: "/links" },
-  { id: 4, title: "Contact", path: "/Contact" },
+  { id: 4, title: "Contact", path: "/contact" },
 ];
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
   return (
     <div>
       <Router>
+        <ScrollToTop />
         <Navigation handleModal={handleModal} navList={navList} />
 
         {showModal ? (

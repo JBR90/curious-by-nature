@@ -2,8 +2,11 @@ import React from "react";
 import hero from "../images/annie-spratt-GIK1tsETnXI-unsplash.jpg";
 import landingPic1 from "../images/anna-samoylova-w55SpMmoPgE-unsplash.jpg";
 import Footer from "../layout/Footer";
+import { useHistory } from "react-router-dom";
 
 const Landing = () => {
+  const history = useHistory();
+
   return (
     <div className="   z-30  w-screen h-screen  ">
       {/* ----------------------------------------------------------------------------------- // hero // */}
@@ -19,7 +22,10 @@ const Landing = () => {
             {`Protecting natural habitats
 from extinction.`}
           </p>
-          <button className="bg-white hover:bg-opacity:20 text-grey-700 font-semibold  py-2 px-4 mt-4  rounded">
+          <button
+            onClick={(e) => history.push("/about")}
+            className="bg-white hover:bg-opacity:20 text-grey-700 font-semibold  py-2 px-4 mt-4  rounded"
+          >
             Learn More
           </button>
         </div>
@@ -58,7 +64,10 @@ plan for saving the planet’s most exceptional wild places.`}
                 greatest challenge of our time. We’re results driven, with a
                 proven record of previous successes.
               </p>
-              <button className="bg-black text-white w-32 hover:bg-opacity:20 text-grey-700 font-semibold  py-2 px-4 mt-4  rounded ">
+              <button
+                onClick={(e) => history.push("/about")}
+                className="bg-black text-white w-32 hover:bg-opacity:20 text-grey-700 font-semibold  py-2 px-4 mt-4  rounded "
+              >
                 Learn More
               </button>
             </div>
@@ -76,7 +85,10 @@ plan for saving the planet’s most exceptional wild places.`}
                 greatest challenge of our time. We’re results driven, with a
                 proven record of previous successes.
               </p>
-              <button className="bg-black text-white w-32 hover:bg-opacity:20 text-grey-700 font-semibold  py-2 px-4 mt-4  rounded ">
+              <button
+                onClick={(e) => history.push("/about")}
+                className="bg-black text-white w-32 hover:bg-opacity:20 text-grey-700 font-semibold  py-2 px-4 mt-4  rounded "
+              >
                 Learn More
               </button>
             </div>

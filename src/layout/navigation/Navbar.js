@@ -26,7 +26,8 @@ const Navbar = ({
     <>
       <nav
         className={`${
-          setLocation.pathname === "/events"
+          setLocation.pathname === "/events" ||
+          setLocation.pathname === "/contact"
             ? "text-black"
             : "text-white bg-black bg-opacity-20"
         }  z-50 font-sans shadow`}
