@@ -2,6 +2,7 @@ import React from "react";
 import NavLinks from "./NavLinks";
 import { useLocation, NavLink } from "react-router-dom";
 import { indigo } from "tailwindcss/colors";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
 
 const Navbar = ({
   navList,
@@ -15,7 +16,6 @@ const Navbar = ({
   console.log(setLocation.pathname);
 
   const handleModalClose = () => {
-    console.log("clcikc");
     if (navOpen) {
       handleModal();
       setNavOpen(false);
@@ -42,21 +42,25 @@ const Navbar = ({
               Curious by Nature
             </NavLink>
           </div>
-          <div class=" hidden sm:block  invisible sm:visible sm:mr-20 mr-0 ">
-            {navList.map((navItem) => (
-              <NavLink
-                exact={true}
-                activeClassName="is-active"
-                to={navItem.path}
-                key={navItem.id}
-                alt={navItem.name}
-                className={
-                  "text-lg no-underline hover:underline  hover:text-blue-dark px-4 "
-                }
-              >
-                {navItem.title}
-              </NavLink>
-            ))}
+          <div class=" hidden  sm:block  invisible sm:visible sm:mr-20 mr-0 ">
+            {navList.map((navItem) =>
+              navItem.title !== "icon" ? (
+                <NavLink
+                  exact={true}
+                  activeClassName="is-active"
+                  to={navItem.path}
+                  key={navItem.id}
+                  alt={navItem.name}
+                  className={
+                    "text-lg no-underline hover:underline  hover:text-blue-dark px-4 "
+                  }
+                >
+                  {navItem.title}
+                </NavLink>
+              ) : (
+                navItem.icon
+              )
+            )}
           </div>
 
           {/* // Hamburger */}

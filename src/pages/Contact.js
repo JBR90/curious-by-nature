@@ -1,5 +1,6 @@
 import React from "react";
 import Footer from "../layout/Footer";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
 
 const Contact = () => {
   return (
@@ -15,9 +16,9 @@ const Contact = () => {
           <p className="mb-4">(555) 555-5555</p>
           <p className="">Address</p>
           <p className="mb-4">address 2</p>
-          <div>
-            <p>twiter</p>
-            <p>insta</p>
+          <div className="flex py-2 ">
+            <FaFacebookF className="mr-3 text-xl cursor-pointer" />
+            <FaInstagram className="mr-3 text-2xl cursor-pointer" />
           </div>
         </div>
         <div className="mb-16 md:mb-3 px-4 items-center xl:mr-20 ">

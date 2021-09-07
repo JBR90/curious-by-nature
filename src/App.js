@@ -9,13 +9,7 @@ import Events from "./pages/Events";
 import Modal from "./layout/navigation/Modal";
 import ScrollToTop from "./components/helpers/ScrollToTop";
 import { motion } from "framer-motion";
-
-const navList = [
-  { id: 1, title: "About", path: "/about" },
-  { id: 2, title: "Events", path: "/events" },
-  { id: 3, title: "Links", path: "/links" },
-  { id: 4, title: "Contact", path: "/contact" },
-];
+import { navList } from "./layout/navigation/navList";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
