@@ -1,9 +1,11 @@
 import React from "react";
 import Event from "../components/Event";
-import { events } from "../mockData/events";
+// import { events } from "../mockData/events";
+import { useSelector } from "react-redux";
 import Footer from "../layout/Footer";
 
 const Events = () => {
+  const events = useSelector((state) => state.events);
   const currentEvents = [];
   const pastEvents = [];
   const date = new Date();

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navigation from "./layout/navigation/Navigation";
 import Footer from "./layout/Footer";
@@ -14,11 +14,22 @@ import ScrollToTop from "./components/helpers/ScrollToTop";
 import { motion } from "framer-motion";
 import { navList } from "./layout/navigation/navList";
 
+import eventService from "./services/eventService";
+import { initializeEvents } from "../src/redux/reducers/eventReducer";
+import { useDispatch } from "react-redux";
+
 function App() {
   const [showModal, setShowModal] = useState(false);
   const handleModal = () => {
     setShowModal(!showModal);
   };
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(initializeEvents());
+  }, [dispatch]);
+
   return (
     <div>
       <Router>
