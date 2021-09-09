@@ -26,7 +26,7 @@ const Navbar = ({
     <>
       <nav
         className={`${
-          setLocation.pathname === "/events" ||
+          setLocation.pathname === "/join-us" ||
           setLocation.pathname === "/contact"
             ? "text-black"
             : "text-white bg-black bg-opacity-20"
@@ -58,7 +58,12 @@ const Navbar = ({
                   {navItem.title}
                 </NavLink>
               ) : (
-                navItem.icon
+                <div
+                  className="inline text-2xl mb-1 ml-4 cursor-pointer"
+                  key={navItem.id}
+                >
+                  {navItem.icon}
+                </div>
               )
             )}
           </div>
