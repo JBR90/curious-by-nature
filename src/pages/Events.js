@@ -6,6 +6,7 @@ import Footer from "../layout/Footer";
 
 const Events = () => {
   const events = useSelector((state) => state.events);
+  console.log(events);
   const currentEvents = [];
   const pastEvents = [];
   const date = new Date();
@@ -17,7 +18,7 @@ const Events = () => {
   };
 
   events.forEach((e) => {
-    let tempDate = dateReformater(e.DateEnd);
+    let tempDate = dateReformater(e.dateEnd);
     tempDate < date ? pastEvents.push(e) : currentEvents.push(e);
   });
 

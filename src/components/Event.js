@@ -8,12 +8,12 @@ const Event = ({ props, past }) => {
           <img
             className="object-cover   overflow-hidden w-10/12  md:w-9/12 "
             src={props.image}
-            alt={props.event_name}
+            alt={props.eventName}
           />
         </div>
         <div className="flex m-auto w-10/12 lg:w-full md:order-2 flex-col justify-center ">
           <h1 className="   bottom-56  w-full text-black text-2xl font-semibold mb-4  lg:text-3xl">
-            {props.event_name}
+            {props.eventName}
           </h1>
           <p className="mb-4 md:text-base  lg:text-1xl">{props.description}</p>
           <p className=" text-base font-semibold  ">{`Start date: ${props.DateStart}`}</p>

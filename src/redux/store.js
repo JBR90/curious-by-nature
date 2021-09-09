@@ -4,7 +4,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import eventReducer from "./reducers/eventReducer";
 
 const reducer = combineReducers({
-  event: eventReducer,
+  events: eventReducer,
 });
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
