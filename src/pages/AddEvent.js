@@ -4,12 +4,39 @@ import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 
+import { useDispatch } from "react-redux";
+import { createEvent } from "../redux/reducers/eventReducer";
+
 import { useHistory } from "react-router-dom";
 
 const AddEvent = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
-  const handleSubmit = () => {};
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = () => {
+    const newEventObject = {
+      eventName: titleRef.current.value,
+      location: locationRef.current.value,
+      dateStart: startDateRef.current.value,
+      dateEnd: endDateRef.current.value,
+      time: timeRef.current.value,
+      description: descriptionRef.current.value,
+      image: imageRef.current.value,
+    };
+
+    dispatch(createEvent(newEventObject));
+  };
+
+  const titleRef = useRef();
+  const descriptionRef = useRef();
+  const imageRef = useRef();
+  const startDateRef = useRef();
+  const endDateRef = useRef();
+  const timeRef = useRef();
+  const locationRef = useRef();
+
   return (
     <div className="w-screen h-screen">
       <div className="flex h-full justify-center items-center">
@@ -17,7 +44,7 @@ const AddEvent = () => {
           <div className="mb-4">
             <label
               className="block text-grey-darker text-sm font-bold mb-2"
-              for="username"
+              for="title"
             >
               Title
             </label>
@@ -26,6 +53,7 @@ const AddEvent = () => {
               id="title"
               type="text"
               placeholder="title"
+              ref={titleRef}
             ></input>
           </div>
           <div className="">
@@ -39,6 +67,7 @@ const AddEvent = () => {
               className="shadow appearance-none border border-red rounded w-full h-32 py-2 px-3 text-grey-darker mb-3"
               id="description"
               type="description"
+              ref={descriptionRef}
             ></textarea>
             {/* <p className="text-red text-xs italic">Please choose a password.</p> */}
           </div>
@@ -53,7 +82,8 @@ const AddEvent = () => {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
               id="title"
               type="text"
-              placeholder="title"
+              placeholder="URL"
+              ref={imageRef}
             ></input>
           </div>
 
@@ -61,7 +91,7 @@ const AddEvent = () => {
             <div>
               <label
                 className="block text-grey-darker text-sm font-bold mb-2"
-                for="username"
+                for="start-date"
               >
                 Start Date
               </label>
@@ -69,12 +99,13 @@ const AddEvent = () => {
                 className=" w-32 cursor-pointer border shadow rounded"
                 selected={startDate}
                 onChange={(date) => setStartDate(date)}
+                ref={startDateRef}
               />
             </div>
             <div className="px-6">
               <label
                 className="block text-grey-darker text-sm font-bold mb-2"
-                for="username"
+                for="end-date"
               >
                 End Date
               </label>
@@ -82,13 +113,14 @@ const AddEvent = () => {
                 className="cursor-pointer w-32 cursor-pointer border shadow rounded"
                 selected={endDate}
                 onChange={(date) => setEndDate(date)}
+                ref={endDateRef}
               />
             </div>
           </div>
           <div className="mb-4">
             <label
               className="block text-grey-darker text-sm font-bold mb-2"
-              for="username"
+              for="time"
             >
               Time
             </label>
@@ -97,6 +129,7 @@ const AddEvent = () => {
               id="time"
               type="text"
               placeholder="eg 12:00 - 15:00 "
+              ref={timeRef}
             ></input>
           </div>
           <div className="mb-4">
@@ -110,6 +143,7 @@ const AddEvent = () => {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
               id="location"
               type="text"
+              ref={locationRef}
             ></input>
           </div>
           <div className="flex items-center justify-between">
