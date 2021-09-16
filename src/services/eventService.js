@@ -9,8 +9,8 @@ const getAll = async () => {
 };
 
 const createNew = async (content) => {
-  const event = { content };
-  const response = await axios.post(baseUrl, event);
+  //   const event = { content };
+  const response = await axios.post(baseUrl, content);
   return response.data;
 };
 
@@ -20,4 +20,10 @@ const updateEvent = async (id, content) => {
   return response.data;
 };
 
-export default { getAll, createNew };
+const deleteEvent = async (id) => {
+  const response = await axios.delete(baseUrl + "/" + id);
+
+  return response.data;
+};
+
+export default { getAll, createNew, deleteEvent };

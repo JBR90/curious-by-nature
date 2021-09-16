@@ -4,7 +4,7 @@ const reducer = (state = [], action) => {
   console.log("ACTION:", action);
   switch (action.type) {
     case "NEW_EVENT":
-      return [...state, action.data];
+      return [...state, action.data.content];
     case "INIT_EVENTS":
       return action.data;
     case "UPDATE_EVENT":
@@ -12,8 +12,9 @@ const reducer = (state = [], action) => {
       const changedEvent = action.data;
       return state.map((event) => (event.id !== id ? event : changedEvent));
     case "DELETE_EVENT":
-      const deleteId = action.data.id;
-      return state.filter((event) => event.id !== deleteId);
+      const updatedEvents = state.filter((e) => e.id !== action.data);
+
+      return [...updatedEvents];
 
     default:
       return state;
@@ -46,6 +47,17 @@ export const editEvent = (content, id) => {
     dispatch({
       type: "UPDATE_EVENT",
       data: updatedEvent,
+    });
+  };
+};
+
+export const deleteEvent = (id) => {
+  return async (dispatch) => {
+    const deletedEvent = await eventService.deleteEvent(id);
+
+    dispatch({
+      type: "DELETE_EVENT",
+      data: id,
     });
   };
 };

@@ -7,8 +7,8 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Events from "./pages/Events";
 import Login from "./pages/Login";
-import AddEvent from "./pages/AddEvent";
-import EditEvent from "./pages/EditEvent";
+import AddEvent from "./pages/eventsAdmin/AddEvent";
+import UpdateEvents from "./pages/eventsAdmin/UpdateEvents";
 import Modal from "./layout/navigation/Modal";
 import ScrollToTop from "./components/helpers/ScrollToTop";
 import { motion } from "framer-motion";
@@ -53,7 +53,7 @@ function App() {
             <Route exact path="/contact" component={Contact} />
             <Route path="/login" component={Login} />
             <Route path="/addevent" component={AddEvent} />
-            <Route path="/editevent" component={EditEvent} />
+            <Route path="/editevent" component={UpdateEvents} />
           </Switch>
         )}
       </Router>

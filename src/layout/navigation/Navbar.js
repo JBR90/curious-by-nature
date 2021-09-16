@@ -33,7 +33,7 @@ const Navbar = ({
         }  z-50 font-sans shadow`}
       >
         <div className="lg:w-4/5 m-auto   flex flex-row justify-between text-center py-8 px-4   items-baseline w-full">
-          <div class="transform transition duration-500 hover:scale-105">
+          <div className="transform transition duration-500 hover:scale-105">
             <NavLink
               onClick={(e) => handleModalClose()}
               to="/"
@@ -42,7 +42,7 @@ const Navbar = ({
               Curious by Nature
             </NavLink>
           </div>
-          <div class=" hidden  sm:block  invisible sm:visible sm:mr-20 mr-0 ">
+          <div className=" hidden  sm:block  invisible sm:visible sm:mr-20 mr-0 ">
             {navList.map((navItem) =>
               navItem.title !== "icon" ? (
                 <NavLink
@@ -72,12 +72,12 @@ const Navbar = ({
 
           <div
             onClick={handleHamburger}
-            class={`  sm:hidden tham tham-e-spin tham-w-8  ${
+            className={`  sm:hidden tham tham-e-spin tham-w-8  ${
               navOpen ? "tham-active" : ""
             }`}
           >
-            <div class="tham-box">
-              <div class="tham-inner bg-black " />
+            <div className="tham-box">
+              <div className="tham-inner bg-black " />
             </div>
           </div>
         </div>

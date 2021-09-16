@@ -6,7 +6,7 @@ import Footer from "../layout/Footer";
 
 const Events = () => {
   const events = useSelector((state) => state.events);
-  console.log(events);
+  console.log("this is events", events);
   const currentEvents = [];
   const pastEvents = [];
   const date = new Date();
