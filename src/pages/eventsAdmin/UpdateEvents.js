@@ -11,9 +11,15 @@ import UpdateModal from "../eventsAdmin/UpdateModal";
 import EventAdmin from "../../components/EventAdmin";
 
 const UpdateEvents = () => {
+  const [addOrUpdate, setAddOrUpdate] = useState("add");
   const [showModal, setShowModal] = useState(false);
   const events = useSelector((state) => state.events);
   const dispatch = useDispatch();
+
+  const handleModal = (e) => {
+    setShowModal(true);
+    console.log(e);
+  };
 
   const handleDelete = (e) => {
     const result = window.confirm("Are you sure you want to delete?");
@@ -33,9 +39,15 @@ const UpdateEvents = () => {
     dispatch(createEvent(newEventObject));
   };
   return (
-    <div className="w-screen  flex justify-center">
+    <div className="w-screen   flex justify-center">
+      {/* <UpdateModal /> */}
       {showModal && (
-        <UpdateModal handleUpdate={handleUpdate} handleAdd={handleAdd} />
+        <UpdateModal
+          handleUpdate={handleUpdate}
+          handleAdd={handleAdd}
+          setShowModal={setShowModal}
+          addOrUpdate={addOrUpdate}
+        />
       )}
       <div className=" w-3/4 mt-28 flex flex-col justify-center h-full item-center">
         <h1 className="w-full font-bold text-center px-4 py-4">
@@ -47,7 +59,7 @@ const UpdateEvents = () => {
               <EventAdmin
                 key={e.id}
                 props={e}
-                setShowModal={setShowModal}
+                handleModal={handleModal}
                 handleUpdate={handleUpdate}
                 handleDelete={handleDelete}
                 handleAdd={handleAdd}

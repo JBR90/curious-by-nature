@@ -11,12 +11,15 @@ const UpdateModal = ({
   handleAdd,
   handleUpdate,
   handleDelete,
+  setShowModal,
 }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const history = useHistory();
 
   const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(e);
     const id = e.target.id;
     console.log(id);
     const newEventObject = {
@@ -28,14 +31,16 @@ const UpdateModal = ({
       description: descriptionRef.current.value,
       image: imageRef.current.value,
     };
+    console.log("add or update", addOrUpdate);
 
     if (addOrUpdate === "add") {
-      handleAdd(newEventObject);
+      console.log("add");
+      // handleAdd(newEventObject);
     } else {
       console.log("update");
       //   handleUpdate(newEventObject, id);
     }
-    history.push("/updateevent");
+    // history.push("/updateevent");
   };
 
   const titleRef = useRef();
@@ -46,10 +51,13 @@ const UpdateModal = ({
   const timeRef = useRef();
   const locationRef = useRef();
   return (
-    <div className="w-screen h-screen bg-white fixed z-200">
-      <div className="flex h-full  border border-yellow-400  items-center">
-        <form className="w-full justify-center flex " action={handleSubmit}>
-          <div className=" mt-24 w-3/4 h-3/6 overflow-auto   bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
+    <div className="w-screen    bg-white absolute z-50">
+      <div className="flex    items-center">
+        <form
+          className="w-full overflow-scroll  justify-center flex "
+          onSubmit={(e) => handleSubmit(e)}
+        >
+          <div className="  w-3/4 h-3/6    bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
             <div className="mb-4 ">
               <label
                 className="block text-grey-darker text-sm font-bold mb-2"
@@ -165,11 +173,12 @@ const UpdateModal = ({
             <div className="flex items-center justify-between">
               <button
                 type="submit"
-                onClick={handleSubmit}
+                // onClick={(e) => handleSubmit(e)}
                 className="bg-blue hover:bg-blue-dark text-black font-bold py-2 px-4 rounded"
               >
                 Submit
               </button>
+              {/* <button onClick={(e) => setShowModal(false)}>Cancel</button> */}
             </div>
           </div>
         </form>

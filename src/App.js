@@ -53,7 +53,7 @@ function App() {
             <Route exact path="/contact" component={Contact} />
             <Route path="/login" component={Login} />
             <Route path="/addevent" component={AddEvent} />
-            <Route path="/editevent" component={UpdateEvents} />
+            <Route path="/updateevent" component={UpdateEvents} />
           </Switch>
         )}
       </Router>
