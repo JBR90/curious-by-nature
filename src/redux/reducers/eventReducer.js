@@ -41,7 +41,7 @@ export const createEvent = (content) => {
   };
 };
 
-export const editEvent = (content, id) => {
+export const updateEvent = (content, id) => {
   return async (dispatch) => {
     const updatedEvent = await eventService.updateEvent(content, id);
     dispatch({
