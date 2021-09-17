@@ -17,7 +17,7 @@ const reducer = (state = [], action) => {
       return [...updatedEvents];
 
     default:
-      return state;
+      return { ...state };
   }
 };
 

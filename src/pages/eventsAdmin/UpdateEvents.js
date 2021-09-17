@@ -15,10 +15,11 @@ const UpdateEvents = () => {
   const [showModal, setShowModal] = useState(false);
   const events = useSelector((state) => state.events);
   const dispatch = useDispatch();
+  console.log(events);
 
   const handleModal = (e) => {
-    setShowModal(true);
     console.log(e);
+    setShowModal(true);
   };
 
   const handleDelete = (e) => {
@@ -36,7 +37,9 @@ const UpdateEvents = () => {
   };
 
   const handleAdd = (newEventObject) => {
+    console.log("@@@add in update evets");
     dispatch(createEvent(newEventObject));
+    console.log("@@@", events);
   };
   return (
     <div className="w-screen   flex justify-center">

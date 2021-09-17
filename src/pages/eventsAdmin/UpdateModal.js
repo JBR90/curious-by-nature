@@ -1,4 +1,10 @@
 import React, { useState, useRef } from "react";
+import { useDispatch } from "react-redux";
+import {
+  deleteEvent,
+  updateEvent,
+  createEvent,
+} from "../../redux/reducers/eventReducer";
 
 import DatePicker from "react-datepicker";
 
@@ -15,7 +21,9 @@ const UpdateModal = ({
 }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
+
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,15 +40,18 @@ const UpdateModal = ({
       image: imageRef.current.value,
     };
     console.log("add or update", addOrUpdate);
+    console.log(newEventObject);
+    // handleAdd(newEventObject);
 
     if (addOrUpdate === "add") {
-      console.log("add");
-      // handleAdd(newEventObject);
+      // dispatch(createEvent(newEventObject));
+      console.log("Add");
+      handleAdd(newEventObject);
+      // history.push("/updateevent");
     } else {
       console.log("update");
       //   handleUpdate(newEventObject, id);
     }
-    // history.push("/updateevent");
   };
 
   const titleRef = useRef();
@@ -51,7 +62,7 @@ const UpdateModal = ({
   const timeRef = useRef();
   const locationRef = useRef();
   return (
-    <div className="w-screen    bg-white absolute z-50">
+    <div className="w-screen    bg-white  z-50">
       <div className="flex    items-center">
         <form
           className="w-full overflow-scroll  justify-center flex "
@@ -61,7 +72,7 @@ const UpdateModal = ({
             <div className="mb-4 ">
               <label
                 className="block text-grey-darker text-sm font-bold mb-2"
-                for="title"
+                htmlFor="title"
               >
                 Title
               </label>
@@ -77,7 +88,7 @@ const UpdateModal = ({
             <div className="">
               <label
                 className="block text-grey-darker text-sm font-bold mb-2"
-                for="description"
+                htmlFor="description"
               >
                 Description
               </label>
@@ -93,13 +104,13 @@ const UpdateModal = ({
             <div className="mb-4">
               <label
                 className="block text-grey-darker text-sm font-bold mb-2"
-                for="username"
+                htmlFor="username"
               >
                 image URL
               </label>
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
-                id="title"
+                id="imageURL"
                 type="text"
                 placeholder="URL"
                 ref={imageRef}
@@ -111,7 +122,7 @@ const UpdateModal = ({
               <div>
                 <label
                   className="block text-grey-darker text-sm font-bold mb-2"
-                  for="start-date"
+                  htmlFor="start-date"
                 >
                   Start Date
                 </label>
@@ -126,7 +137,7 @@ const UpdateModal = ({
               <div className="px-6">
                 <label
                   className="block text-grey-darker text-sm font-bold mb-2"
-                  for="end-date"
+                  htmlFor="end-date"
                 >
                   End Date
                 </label>
@@ -142,7 +153,7 @@ const UpdateModal = ({
             <div className="mb-4">
               <label
                 className="block text-grey-darker text-sm font-bold mb-2"
-                for="time"
+                htmlFor="time"
               >
                 Time
               </label>
@@ -158,7 +169,7 @@ const UpdateModal = ({
             <div className="mb-4">
               <label
                 className="block text-grey-darker text-sm font-bold mb-2"
-                for="location"
+                htmlFor="location"
               >
                 Location
               </label>
@@ -172,8 +183,8 @@ const UpdateModal = ({
             </div>
             <div className="flex items-center justify-between">
               <button
-                type="submit"
-                // onClick={(e) => handleSubmit(e)}
+                // type="submit"
+                onClick={(e) => handleSubmit(e)}
                 className="bg-blue hover:bg-blue-dark text-black font-bold py-2 px-4 rounded"
               >
                 Submit
