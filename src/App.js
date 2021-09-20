@@ -51,9 +51,9 @@ function App() {
             <Route exact path="/about" component={About} />
             <Route exact path="/join-us" component={Events} />
             <Route exact path="/contact" component={Contact} />
-            <Route path="/login" component={Login} />
-            <Route path="/addevent" component={AddEvent} />
-            <Route path="/updateevent" component={UpdateEvents} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/addevent" component={AddEvent} />
+            <Route exact path="/updateevents" component={UpdateEvents} />
           </Switch>
         )}
       </Router>

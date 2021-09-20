@@ -1,7 +1,6 @@
 import React from "react";
 
 const Event = ({ props, past }) => {
-  console.log("props", props);
   return (
     <div className={`w-full bg-white ${past ? "opacity-50" : ""}  `}>
       <div className=" sm:justify-center lg:w-4/5 m-auto px-4 py-10 grid grid-cols-1 md:grid-cols-2">

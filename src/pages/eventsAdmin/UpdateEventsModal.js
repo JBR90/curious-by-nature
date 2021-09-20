@@ -1,36 +1,21 @@
 import React, { useState, useRef } from "react";
-// import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
-import {
-  deleteEvent,
-  updateEvent,
-  createEvent,
-} from "../../redux/reducers/eventReducer";
 
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 
+import { useDispatch } from "react-redux";
+import { createEvent } from "../../redux/reducers/eventReducer";
+
 import { useHistory } from "react-router-dom";
 
-const UpdateModal = ({
-  addOrUpdate,
-  handleAdd,
-  handleUpdate,
-  handleDelete,
-  setShowModal,
-}) => {
+const UpdateEventsModal = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
-  const history = useHistory();
   const dispatch = useDispatch();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const id = e.target.id;
-    console.log("his is the ID", id);
+  const handleSubmit = () => {
     const newEventObject = {
       eventName: titleRef.current.value,
       location: locationRef.current.value,
@@ -40,17 +25,8 @@ const UpdateModal = ({
       description: descriptionRef.current.value,
       image: imageRef.current.value,
     };
-    // dispatch(createEvent(newEventObject));
 
-    // handleAdd(newEventObject);
-    console.log(addOrUpdate);
-    if (addOrUpdate === "add") {
-      handleAdd(newEventObject);
-    } else {
-      console.log("update");
-      //   handleUpdate(newEventObject, id);
-    }
-    setShowModal(false);
+    dispatch(createEvent(newEventObject));
   };
 
   const titleRef = useRef();
@@ -60,20 +36,19 @@ const UpdateModal = ({
   const endDateRef = useRef();
   const timeRef = useRef();
   const locationRef = useRef();
+
   return (
-    <div className="w-screen    bg-white  z-50">
-      <div className="flex    items-center">
-        <form
-          className="w-full overflow-scroll  justify-center flex "
-          onSubmit={handleSubmit}
-        >
-          <div className="  w-3/4 h-3/6    bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
+    <div className="w-screen ">
+      <h1>hjhj</h1>
+      <div className="flex h-full  border border-yellow-400  items-center">
+        <form className="w-full justify-center flex " action={handleSubmit}>
+          <div className=" mt-24 w-3/4 h-3/6 overflow-auto   bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
             <div className="mb-4 ">
               <label
                 className="block text-grey-darker text-sm font-bold mb-2"
-                htmlFor="title"
+                for="title"
               >
-                Title
+                Titles
               </label>
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
@@ -82,13 +57,12 @@ const UpdateModal = ({
                 placeholder="title"
                 ref={titleRef}
                 required
-                value={addOrUpdate === "update" ? "this" : "that"}
               ></input>
             </div>
             <div className="">
               <label
                 className="block text-grey-darker text-sm font-bold mb-2"
-                htmlFor="description"
+                for="description"
               >
                 Description
               </label>
@@ -104,13 +78,13 @@ const UpdateModal = ({
             <div className="mb-4">
               <label
                 className="block text-grey-darker text-sm font-bold mb-2"
-                htmlFor="username"
+                for="username"
               >
                 image URL
               </label>
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
-                id="imageURL"
+                id="title"
                 type="text"
                 placeholder="URL"
                 ref={imageRef}
@@ -122,7 +96,7 @@ const UpdateModal = ({
               <div>
                 <label
                   className="block text-grey-darker text-sm font-bold mb-2"
-                  htmlFor="start-date"
+                  for="start-date"
                 >
                   Start Date
                 </label>
@@ -137,7 +111,7 @@ const UpdateModal = ({
               <div className="px-6">
                 <label
                   className="block text-grey-darker text-sm font-bold mb-2"
-                  htmlFor="end-date"
+                  for="end-date"
                 >
                   End Date
                 </label>
@@ -153,7 +127,7 @@ const UpdateModal = ({
             <div className="mb-4">
               <label
                 className="block text-grey-darker text-sm font-bold mb-2"
-                htmlFor="time"
+                for="time"
               >
                 Time
               </label>
@@ -169,7 +143,7 @@ const UpdateModal = ({
             <div className="mb-4">
               <label
                 className="block text-grey-darker text-sm font-bold mb-2"
-                htmlFor="location"
+                for="location"
               >
                 Location
               </label>
@@ -183,13 +157,12 @@ const UpdateModal = ({
             </div>
             <div className="flex items-center justify-between">
               <button
-                type="submit"
-                // onClick={(e) => handleSubmit(e)}
+                // type="submit"
+                onClick={handleSubmit}
                 className="bg-blue hover:bg-blue-dark text-black font-bold py-2 px-4 rounded"
               >
                 Submit
               </button>
-              {/* <button onClick={(e) => setShowModal(false)}>Cancel</button> */}
             </div>
           </div>
         </form>
@@ -198,4 +171,4 @@ const UpdateModal = ({
   );
 };
 
-export default UpdateModal;
+export default UpdateEventsModal;

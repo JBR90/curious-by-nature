@@ -11,9 +11,7 @@ const Navbar = ({
   navOpen,
   setNavOpen,
 }) => {
-  console.log(navOpen);
   const setLocation = useLocation();
-  console.log(setLocation.pathname);
 
   const handleModalClose = () => {
     if (navOpen) {
