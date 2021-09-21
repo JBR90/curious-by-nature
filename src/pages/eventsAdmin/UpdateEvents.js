@@ -14,15 +14,21 @@ import UpdateEventsModal from "../eventsAdmin/UpdateEventsModal";
 import EventAdmin from "../../components/EventAdmin";
 
 const UpdateEvents = () => {
+  // is Modal for adding or updating
   const [addOrUpdate, setAddOrUpdate] = useState("add");
+  const [eventToUpdate, setEventToUpdate] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   const events = useSelector((state) => state.events);
   console.log("events in update events", events);
 
   const handleModal = (e) => {
-    console.log(e.target);
-    // setAddOrUpdate();
+    addOrUpdate === "update"
+      ? setEventToUpdate(events.filter((e) => e.id === e.target.id))
+      : null;
+
+    console.log(e.target.id);
+
     setShowModal(true);
   };
 
@@ -80,6 +86,7 @@ const UpdateEvents = () => {
                 handleUpdate={handleUpdate}
                 handleDelete={handleDelete}
                 handleAdd={handleAdd}
+                setAddOrUpdate={setAddOrUpdate}
               />
             ))
         )}

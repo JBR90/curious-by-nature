@@ -189,7 +189,7 @@ const UpdateModal = ({
               >
                 Submit
               </button>
-              {/* <button onClick={(e) => setShowModal(false)}>Cancel</button> */}
+              <button onClick={(e) => setShowModal(false)}>Cancel</button>
             </div>
           </div>
         </form>
