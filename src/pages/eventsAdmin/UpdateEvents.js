@@ -23,11 +23,22 @@ const UpdateEvents = () => {
   console.log("events in update events", events);
 
   const handleModal = (e) => {
-    addOrUpdate === "update"
-      ? setEventToUpdate(events.filter((e) => e.id === e.target.id))
-      : null;
+    // events.forEach((element) => {
+    //   console.log("element", element.id);
+    //   console.log("target", e.target.id);
+    //   if (String(element.id) === String(e.target.id)) {
+    //     console.log("match");
+    //   }
 
-    console.log(e.target.id);
+    // });
+    console.log("id =", e.target.id);
+    const id = e.target.id;
+    console.log(id);
+    setEventToUpdate(events.find((e) => e.id === id));
+    if (addOrUpdate === "update") {
+    }
+    console.log("update event", eventToUpdate);
+    // console.log(events);
 
     setShowModal(true);
   };
@@ -41,6 +52,8 @@ const UpdateEvents = () => {
   };
 
   const handleUpdate = async (newEventObject, id) => {
+    console.log("in handleUpdate id", id);
+    console.log("in handleUpdate", newEventObject);
     dispatch(updateEvent(newEventObject, id));
   };
 
@@ -56,6 +69,7 @@ const UpdateEvents = () => {
           handleAdd={handleAdd}
           setShowModal={setShowModal}
           addOrUpdate={addOrUpdate}
+          eventToUpdate={eventToUpdate}
         />
       )}
       {/* <UpdateEventsModal /> */}

@@ -16,6 +16,7 @@ import { useHistory } from "react-router-dom";
 const UpdateModal = ({
   addOrUpdate,
   handleAdd,
+  eventToUpdate,
   handleUpdate,
   handleDelete,
   setShowModal,
@@ -25,6 +26,8 @@ const UpdateModal = ({
 
   const history = useHistory();
   const dispatch = useDispatch();
+
+  console.log("event to update", eventToUpdate);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -47,8 +50,8 @@ const UpdateModal = ({
     if (addOrUpdate === "add") {
       handleAdd(newEventObject);
     } else {
-      console.log("update");
-      //   handleUpdate(newEventObject, id);
+      const id = eventToUpdate.id;
+      handleUpdate(newEventObject, id);
     }
     setShowModal(false);
   };
@@ -61,7 +64,7 @@ const UpdateModal = ({
   const timeRef = useRef();
   const locationRef = useRef();
   return (
-    <div className="w-screen    bg-white  z-50">
+    <div className="w-screen absolute   bg-white  z-50">
       <div className="flex    items-center">
         <form
           className="w-full overflow-scroll  justify-center flex "
@@ -82,7 +85,9 @@ const UpdateModal = ({
                 placeholder="title"
                 ref={titleRef}
                 required
-                value={addOrUpdate === "update" ? "this" : "that"}
+                defaultValue={
+                  addOrUpdate === "update" ? eventToUpdate.eventName : ""
+                }
               ></input>
             </div>
             <div className="">
@@ -98,6 +103,9 @@ const UpdateModal = ({
                 type="description"
                 ref={descriptionRef}
                 required
+                defaultValue={
+                  addOrUpdate === "update" ? eventToUpdate.description : ""
+                }
               ></textarea>
               {/* <p className="text-red text-xs italic">Please choose a password.</p> */}
             </div>
@@ -115,6 +123,9 @@ const UpdateModal = ({
                 placeholder="URL"
                 ref={imageRef}
                 required
+                defaultValue={
+                  addOrUpdate === "update" ? eventToUpdate.image : ""
+                }
               ></input>
             </div>
 
@@ -132,6 +143,9 @@ const UpdateModal = ({
                   onChange={(date) => setStartDate(date)}
                   ref={startDateRef}
                   required
+                  defaultValue={
+                    addOrUpdate === "update" ? eventToUpdate.dateStart : ""
+                  }
                 />
               </div>
               <div className="px-6">
@@ -147,6 +161,9 @@ const UpdateModal = ({
                   onChange={(date) => setEndDate(date)}
                   ref={endDateRef}
                   required
+                  defaultValue={
+                    addOrUpdate === "update" ? eventToUpdate.dateEnd : ""
+                  }
                 />
               </div>
             </div>
@@ -164,6 +181,9 @@ const UpdateModal = ({
                 placeholder="eg 12:00 - 15:00 "
                 ref={timeRef}
                 required
+                defaultValue={
+                  addOrUpdate === "update" ? eventToUpdate.time : ""
+                }
               ></input>
             </div>
             <div className="mb-4">
@@ -179,6 +199,9 @@ const UpdateModal = ({
                 type="text"
                 ref={locationRef}
                 required
+                defaultValue={
+                  addOrUpdate === "update" ? eventToUpdate.location : ""
+                }
               ></input>
             </div>
             <div className="flex items-center justify-between">
