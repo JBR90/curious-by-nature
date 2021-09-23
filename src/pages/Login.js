@@ -1,12 +1,14 @@
 import React, { useState, useRef } from "react";
 
 import { useHistory } from "react-router-dom";
+import { getUser, login } from "../services/authService";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [currentUser, setCurrentUser] = useState(null);
   const passwordRef = useRef();
-  const usernameRef = useRef();
+  const emailRef = useRef();
 
   const history = useHistory();
 
@@ -16,12 +18,21 @@ const Login = () => {
     try {
       setError("");
       setLoading(true);
-      //   await login(emailRef.current.value, passwordRef.current.value);
-
+      const user = await login(
+        emailRef.current.value,
+        passwordRef.current.value
+      );
       history.push("/updateevents");
+      // setCurrentUser(user);
+      console.log(user);
+      setCurrentUser(user);
     } catch (err) {
-      setError("Failed to login", err);
+      setError("Failed to login", err.message);
+      console.log(err);
     }
+
+    // if (currentUser) {
+    // }
     setLoading(false);
   };
 
@@ -41,9 +52,10 @@ const Login = () => {
               id="username"
               type="text"
               placeholder="Username"
-              inputRef={usernameRef}
+              ref={emailRef}
             ></input>
           </div>
+          <h1>{currentUser}</h1>
           <div className="mb-6">
             <label
               className="block text-grey-darker text-sm font-bold mb-2"
@@ -56,7 +68,7 @@ const Login = () => {
               id="password"
               type="password"
               placeholder="******************"
-              inputRef={passwordRef}
+              ref={passwordRef}
             ></input>
             {/* <p className="text-red text-xs italic">Please choose a password.</p> */}
           </div>

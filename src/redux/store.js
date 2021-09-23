@@ -3,10 +3,11 @@ import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import eventReducer from "./reducers/eventReducer";
 import { firebaseReducer } from "react-redux-firebase";
+import userReducer from "./reducers/userReducer";
 
 const reducer = combineReducers({
   events: eventReducer,
-  firebase: firebaseReducer,
+  user: userReducer,
 });
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));

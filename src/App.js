@@ -11,6 +11,7 @@ import AddEvent from "./pages/eventsAdmin/AddEvent";
 import UpdateEvents from "./pages/eventsAdmin/UpdateEvents";
 import Modal from "./layout/navigation/Modal";
 import ScrollToTop from "./components/helpers/ScrollToTop";
+import PrivateRoute from "./components/routes/PrivateRoute";
 import { motion } from "framer-motion";
 import { navList } from "./layout/navigation/navList";
 
@@ -53,7 +54,7 @@ function App() {
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/addevent" component={AddEvent} />
-            <Route exact path="/updateevents" component={UpdateEvents} />
+            <PrivateRoute exact path="/updateevents" component={UpdateEvents} />
           </Switch>
         )}
       </Router>

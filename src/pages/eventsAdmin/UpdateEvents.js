@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { IoAddCircleSharp } from "react-icons/io5";
 import { GrAddCircle } from "react-icons/gr";
 import {
@@ -10,6 +11,8 @@ import {
 } from "../../redux/reducers/eventReducer";
 import UpdateModal from "../eventsAdmin/UpdateModal";
 import UpdateEventsModal from "../eventsAdmin/UpdateEventsModal";
+import { logout } from "../../services/authService";
+import { useGetUser } from "../../services/authService";
 
 import EventAdmin from "../../components/EventAdmin";
 
@@ -21,6 +24,9 @@ const UpdateEvents = () => {
   const dispatch = useDispatch();
   const events = useSelector((state) => state.events);
   console.log("events in update events", events);
+  const history = useHistory();
+  const user = useGetUser();
+  console.log(user);
 
   const handleModal = (e) => {
     // events.forEach((element) => {
@@ -60,6 +66,11 @@ const UpdateEvents = () => {
   const handleAdd = async (newEventObject) => {
     dispatch(createEvent(newEventObject));
   };
+
+  const handleLogout = async () => {
+    await logout();
+    history.push("/login");
+  };
   return (
     <div className="w-screen   flex justify-center">
       {/* <UpdateModal /> */}
@@ -89,6 +100,12 @@ const UpdateEvents = () => {
             />
           </div>
         </div>
+        <button
+          onClick={handleLogout}
+          className=" cursor-pointer border-2 fixed right-3 bottom-3"
+        >
+          Logout
+        </button>
 
         {events.map(
           (e) =>
