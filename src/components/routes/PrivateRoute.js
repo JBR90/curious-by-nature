@@ -1,30 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Route, Redirect } from "react-router-dom";
-import { auth } from "../../services/firebase";
 import { useSelector } from "react-redux";
-// import { useAuth, useAuthState } from "../../contexts/AuthContext";
-import { useGetUser } from "../../services/authService";
+import { isLoaded, isEmpty } from "react-redux-firebase";
 
-export default function PrivateRoute({ component: Component, ...rest }) {
-  //   const [user, setUser] = useState(null);
-  //   const user = useSelector((state) => state.user);
-  //   console.log(user, ",private");
-
-  //   useEffect(() => {
-  //     const unsubscribe = auth.onAuthStateChanged((user) => {
-  //       setUser(user);
-  //     });
-
-  //     return () => unsubscribe();
-  //   });
-  //   console.log("user", user);
-  const user = null;
+// A wrapper for <Route> that redirects to the login
+// screen if you're not yet authenticated or if auth is not
+// yet loaded
+function PrivateRoute({ children, ...rest }) {
+  const auth = useSelector((state) => state.firebase.auth);
   return (
     <Route
       {...rest}
-      render={(props) => {
-        return user ? <Component {...props} /> : <Redirect to={"/login"} />;
-      }}
-    ></Route>
+      render={({ location }) =>
+        isLoaded(auth) && !isEmpty(auth) ? (
+          children
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/login",
+              state: { from: location },
+            }}
+          />
+        )
+      }
+    />
   );
 }
+
+export default PrivateRoute;

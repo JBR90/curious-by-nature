@@ -12,9 +12,9 @@ import { ReactReduxFirebaseProvider } from "react-redux-firebase";
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      {/* <ReactReduxFirebaseProvider {...rrfProps}> */}
-      <App />
-      {/* </ReactReduxFirebaseProvider> */}
+      <ReactReduxFirebaseProvider {...rrfProps}>
+        <App />
+      </ReactReduxFirebaseProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

@@ -13,18 +13,18 @@ const firebaseConfig = {
   measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 };
 
-// const rrfConfig = {
-//   userProfile: "users",
-//   // useFirestoreForProfile: true // Firestore for Profile instead of Realtime DB
-//   // enableClaims: true // Get custom claims along with the profile
-// };
+const rrfConfig = {
+  userProfile: "users",
+  // useFirestoreForProfile: true // Firestore for Profile instead of Realtime DB
+  // enableClaims: true // Get custom claims along with the profile
+};
 
-// export const rrfProps = {
-//   firebase,
-//   config: rrfConfig,
-//   dispatch: store.dispatch,
-// //   createFirestoreInstance, // <- needed if using firestore
-// };
+export const rrfProps = {
+  firebase,
+  config: rrfConfig,
+  dispatch: store.dispatch,
+  //   createFirestoreInstance, // <- needed if using firestore
+};
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 // const db = firebaseApp.firestore();

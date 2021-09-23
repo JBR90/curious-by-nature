@@ -12,11 +12,15 @@ import UpdateEvents from "./pages/eventsAdmin/UpdateEvents";
 import Modal from "./layout/navigation/Modal";
 import ScrollToTop from "./components/helpers/ScrollToTop";
 import PrivateRoute from "./components/routes/PrivateRoute";
+import AuthIsLoaded from "./components/AuthIsLoaded";
 import { motion } from "framer-motion";
 import { navList } from "./layout/navigation/navList";
 
 import eventService from "./services/eventService";
-import { initializeEvents } from "../src/redux/reducers/eventReducer";
+import {
+  initializeEvents,
+  updateEvent,
+} from "../src/redux/reducers/eventReducer";
 import { useDispatch } from "react-redux";
 
 function App() {
@@ -54,7 +58,17 @@ function App() {
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/addevent" component={AddEvent} />
-            <PrivateRoute exact path="/updateevents" component={UpdateEvents} />
+            {/* <AuthIsLoaded> */}
+            {/* <PrivateRoute path="/protected">
+              <UpdateEvents />
+            </PrivateRoute> */}
+
+            {/* <PrivateRoute
+                exact
+                path="/updateevents"
+                component={UpdateEvents}
+              /> */}
+            {/* </AuthIsLoaded> */}
           </Switch>
         )}
       </Router>
