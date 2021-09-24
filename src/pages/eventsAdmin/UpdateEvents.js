@@ -25,8 +25,8 @@ const UpdateEvents = () => {
   const events = useSelector((state) => state.events);
   console.log("events in update events", events);
   const history = useHistory();
-  const user = useGetUser();
-  console.log(user);
+  // const user = useGetUser();
+  // console.log(user);
 
   const handleModal = (e) => {
     // events.forEach((element) => {

@@ -7,7 +7,7 @@ import userReducer from "./reducers/userReducer";
 
 const reducer = combineReducers({
   events: eventReducer,
-  user: userReducer,
+  firebase: firebaseReducer,
 });
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));

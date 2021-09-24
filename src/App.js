@@ -58,17 +58,17 @@ function App() {
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/addevent" component={AddEvent} />
-            {/* <AuthIsLoaded> */}
-            {/* <PrivateRoute path="/protected">
-              <UpdateEvents />
-            </PrivateRoute> */}
+            <AuthIsLoaded>
+              <PrivateRoute path="/protected">
+                <UpdateEvents />
+              </PrivateRoute>
 
-            {/* <PrivateRoute
+              {/* <PrivateRoute
                 exact
                 path="/updateevents"
                 component={UpdateEvents}
               /> */}
-            {/* </AuthIsLoaded> */}
+            </AuthIsLoaded>
           </Switch>
         )}
       </Router>
