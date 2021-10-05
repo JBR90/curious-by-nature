@@ -1,6 +1,9 @@
 import React from "react";
+import { dateFormat } from "../components/helpers/DateHelpers";
 
 const Event = ({ props, past }) => {
+  const dateStart = dateFormat(props.dateStart);
+  const dateEnd = dateFormat(props.dateEnd);
   return (
     <div className={`w-full bg-white ${past ? "opacity-50" : ""}  `}>
       <div className=" sm:justify-center lg:w-4/5 m-auto px-4 py-10 grid grid-cols-1 md:grid-cols-2">
@@ -16,8 +19,8 @@ const Event = ({ props, past }) => {
             {props.eventName}
           </h1>
           <p className="mb-4 md:text-base  lg:text-1xl">{props.description}</p>
-          <p className=" text-base font-semibold  ">{`Start date: ${props.dateStart}`}</p>
-          <p className=" text-base font-semibold  ">{`End date:   ${props.dateEnd}`}</p>
+          <p className=" text-base font-semibold  ">{`Start date: ${dateStart}`}</p>
+          <p className=" text-base font-semibold  ">{`End date:   ${dateEnd}`}</p>
           <p className=" text-base font-semibold  ">{`Time:   ${props.time}`}</p>
           <p className="mb-4 text-base font-semibold  ">{`Location:   ${props.location}`}</p>
         </div>

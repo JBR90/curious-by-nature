@@ -26,6 +26,7 @@ const reducer = (state = [], action) => {
 export const initializeEvents = () => {
   return async (dispatch) => {
     const events = await eventService.getAll();
+    console.log("EVENTS", events);
     dispatch({
       type: "INIT_EVENTS",
       data: events,
@@ -35,11 +36,11 @@ export const initializeEvents = () => {
 
 export const createEvent = (content) => {
   return async (dispatch) => {
-    const newEvent = await eventService.createNew(content);
-    console.log("this is new event", newEvent);
+    const newEventId = await eventService.createNew(content);
+    console.log("this is new event", newEventId);
     dispatch({
       type: "NEW_EVENT",
-      data: newEvent,
+      data: { ...content, newEventId },
     });
   };
 };
@@ -49,7 +50,7 @@ export const updateEvent = (content, id) => {
     const updatedEvent = await eventService.updateEvent(content, id);
     dispatch({
       type: "UPDATE_EVENT",
-      data: updatedEvent,
+      data: { ...content, id },
     });
   };
 };

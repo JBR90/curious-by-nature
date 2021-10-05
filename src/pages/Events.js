@@ -13,14 +13,17 @@ const Events = () => {
   const defaultFormatted = date.toLocaleDateString("en-GB");
 
   const dateReformater = (date) => {
+    console.log("data", date);
     const parts = date.split("/");
     return new Date(parts[2], parts[1] - 1, parts[0]);
   };
-
-  events.forEach((e) => {
-    let tempDate = dateReformater(e.dateEnd);
-    tempDate < date ? pastEvents.push(e) : currentEvents.push(e);
-  });
+  if (events) {
+    console.log("eventes **", events);
+    events.forEach((e) => {
+      // let tempDate = dateReformater(e.dateEnd);
+      e.dataEnd < date ? pastEvents.push(e) : currentEvents.push(e);
+    });
+  }
 
   return (
     <div>
