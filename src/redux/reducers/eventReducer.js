@@ -50,7 +50,7 @@ export const updateEvent = (content, id) => {
     const updatedEvent = await eventService.updateEvent(content, id);
     dispatch({
       type: "UPDATE_EVENT",
-      data: updatedEvent,
+      data: { ...content, id },
     });
   };
 };

@@ -42,15 +42,44 @@ const createNew = async (content) => {
 };
 
 const updateEvent = async (content, id) => {
-  const event = { content };
-  const response = await axios.put(`${baseUrl}/${id}`, content);
-  return response.data;
+  // Firebase
+
+  try {
+    const res = await db
+      .collection("events")
+      .doc(id)
+      .set(content)
+      .once("value")
+      .then((snap) => {
+        console.log(snap);
+      });
+    console.log("RES", res.data);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+
+  // axios
+  // const event = { content };
+  // const response = await axios.put(`${baseUrl}/${id}`, content);
+  // return response.data;
 };
 
 const deleteEvent = async (id) => {
-  const response = await axios.delete(baseUrl + "/" + id);
+  // FIREBASE
 
-  return response.data;
+  try {
+    const res = await db.collection("events").doc(id).delete();
+    console.log(res);
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+
+  // AXIOS
+  // const response = await axios.delete(baseUrl + "/" + id);
+
+  // return response.data;
 };
 
 export default { getAll, createNew, deleteEvent, updateEvent };
