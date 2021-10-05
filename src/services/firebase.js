@@ -27,7 +27,7 @@ export const rrfProps = {
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
-// const db = firebaseApp.firestore();
+export const db = firebaseApp.firestore();
 export const projectFirestore = firebase.firestore();
 export const auth = firebaseApp.auth();
 
