@@ -100,7 +100,15 @@ const Login = () => {
           </div>
         </div>
       ) : (
-        <pre>{JSON.stringify(auth, null, 2)}</pre>
+        <div className="w-screen h-screen flex flex-col justify-center">
+          <button
+            onClick={history.push("/protected")}
+            className="border-2 border-black py-2"
+          >
+            Update Events
+          </button>
+          <button>Logout</button>
+        </div>
       )}
     </div>
   );
