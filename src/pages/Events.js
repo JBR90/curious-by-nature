@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Event from "../components/Event";
 // import { events } from "../mockData/events";
 import { useSelector } from "react-redux";
@@ -6,6 +6,8 @@ import Footer from "../layout/Footer";
 
 const Events = () => {
   const events = useSelector((state) => state.events);
+  // const [currentEvents, setCurrentEvents] = useState([]);
+  // const [pastEvents, setPastEvents] = useState([]);
 
   const currentEvents = [];
   const pastEvents = [];
@@ -17,13 +19,27 @@ const Events = () => {
     const parts = date.split("/");
     return new Date(parts[2], parts[1] - 1, parts[0]);
   };
-  if (events) {
+  if (events.length > 0) {
     console.log("eventes **", events);
     events.forEach((e) => {
       // let tempDate = dateReformater(e.dateEnd);
       e.dataEnd < date ? pastEvents.push(e) : currentEvents.push(e);
+      // e.dataEnd < date
+      //   ? setPastEvents([...pastEvents, e])
+      //   : setCurrentEvents([...currentEvents, e]);
     });
   }
+
+  // useEffect(() => {
+  //   events.forEach((e) => {
+  //     e.dataEnd < date
+  //       ? setPastEvents([...pastEvents, e])
+  //       : setCurrentEvents([...currentEvents, e]);
+  //   });
+  //   console.log(pastEvents)
+
+  //   return () => {};
+  // }, [events]);
 
   return (
     <div>
@@ -33,17 +49,19 @@ const Events = () => {
           <div className="w-full  text-center">
             <h1 className="text-4xl bg-yellow-100 p-6 mt-16 mb-5">Upcoming</h1>
           </div>
-          {currentEvents.map(
-            (e) => (e = <Event key={e.id} props={e} past={false} />)
-          )}
+          {currentEvents &&
+            currentEvents.map(
+              (e) => (e = <Event key={e.id} props={e} past={false} />)
+            )}
           <div className="w-full  text-center">
             <h1 className="text-4xl bg-yellow-100 p-6 mt-16 mb-5">
               Past Events
             </h1>
           </div>
-          {pastEvents.map(
-            (e) => (e = <Event key={e.id} props={e} past={true} />)
-          )}
+          {pastEvents &&
+            pastEvents.map(
+              (e) => (e = <Event key={e.id} props={e} past={true} />)
+            )}
 
           <Footer />
         </div>
