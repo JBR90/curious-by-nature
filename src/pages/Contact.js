@@ -1,10 +1,12 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import emailjs from "emailjs-com";
 
 import Footer from "../layout/Footer";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 
 const Contact = () => {
+  const [message, setMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -19,12 +21,21 @@ const Contact = () => {
       )
       .then(
         (result) => {
+          setMessage("Your message has been sent");
+          setTimeout(() => {
+            setMessage("");
+          }, 3000);
           console.log(result.text);
         },
         (error) => {
+          setErrorMessage("Error : Your message has not been sent");
+          setTimeout(() => {
+            setErrorMessage("");
+          }, 3000);
           console.log(error.text);
         }
       );
+    e.target.reset();
   };
   return (
     <div className="w-screen  h-screen border-2 border-indigo-200">
@@ -54,6 +65,7 @@ const Contact = () => {
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="Name"
                 type="text"
+                name="user_name"
                 // placeholder="Name"
               ></input>
             </div>
@@ -65,6 +77,7 @@ const Contact = () => {
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="Email"
                 type="email"
+                name="user_email"
                 // placeholder="Name"
               ></input>
             </div>
@@ -76,6 +89,7 @@ const Contact = () => {
                 className="shadow appearance-none border rounded w-full h-32 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="Name"
                 type="text"
+                name="user_message"
                 // placeholder="Name"
               ></input>
             </div>
@@ -83,6 +97,8 @@ const Contact = () => {
               Submit
             </button>
           </form>
+          <p className="text-center text-green-400">{message}</p>
+          <p className="text-center text-red-400 ">{errorMessage}</p>
         </div>
       </div>
       <Footer />
