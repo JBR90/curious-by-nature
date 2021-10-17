@@ -1,8 +1,31 @@
-import React from "react";
+import React, { useRef } from "react";
+import emailjs from "emailjs-com";
+
 import Footer from "../layout/Footer";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 
 const Contact = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_w8icvr1",
+        "template_c67srin",
+        form.current,
+        "user_gNEvxjDjrro25LjCUAGkS"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
   return (
     <div className="w-screen  h-screen border-2 border-indigo-200">
       <div className="w-full  md:h-full m-auto lg:w-4/5 grid grid-col-1 md:grid-cols-2 gap-8 px-2 py-2 items-center ">
@@ -22,7 +45,7 @@ const Contact = () => {
           </div>
         </div>
         <div className="  mb-16 md:mb-3 px-4 items-center xl:mr-20 ">
-          <form className="flex flex-col " action="">
+          <form ref={form} onSubmit={sendEmail} className="flex flex-col ">
             <div className="py-4">
               <label className="block  text-sm  mb-2" for="name">
                 Name
@@ -56,7 +79,9 @@ const Contact = () => {
                 // placeholder="Name"
               ></input>
             </div>
-            <button>Submit</button>
+            <button type="submit" value="Send">
+              Submit
+            </button>
           </form>
         </div>
       </div>
