@@ -121,8 +121,13 @@ const Login = () => {
           >
             Logout
           </button>
-          <h1>Logged in as : </h1>
-          <pre>{JSON.stringify(auth.email, null, 2)}</pre>
+          <div className="flex flex-col ">
+            <h1>Logged in as : {JSON.stringify(auth.email, null, 2)}</h1>
+
+            <button className="py-2" onClick={() => history.push("/protected")}>
+              Update Events
+            </button>
+          </div>
         </div>
       )}
     </div>
