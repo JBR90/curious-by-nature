@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 
 import { useFirebase, isLoaded, isEmpty } from "react-redux-firebase";
+import { logout } from "../services/authService";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
@@ -47,6 +48,11 @@ const Login = () => {
     // if (currentUser) {
     // }
     setLoading(false);
+  };
+
+  const handleLogout = async () => {
+    await logout();
+    history.push("/login");
   };
 
   return (
@@ -100,14 +106,23 @@ const Login = () => {
           </div>
         </div>
       ) : (
-        <div className="w-screen h-screen flex flex-col justify-center">
+        // <div className="w-screen h-screen flex flex-col justify-center">
+        //   <button
+        //     onClick={history.push("/protected")}
+        //     className="border-2 border-black py-2"
+        //   >
+        //     Update Events
+        //   </button>
+        //   <button>Logout</button>
+        <div className="w-screen h-screen flex justify-center items-center">
           <button
-            onClick={history.push("/protected")}
-            className="border-2 border-black py-2"
+            onClick={handleLogout}
+            className=" cursor-pointer border-2 fixed right-3 bottom-3"
           >
-            Update Events
+            Logout
           </button>
-          <button>Logout</button>
+          <h1>Logged in as : </h1>
+          <pre>{JSON.stringify(auth.email, null, 2)}</pre>
         </div>
       )}
     </div>
