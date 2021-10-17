@@ -2,6 +2,7 @@ import React from "react";
 import { dateFormat } from "../components/helpers/DateHelpers";
 
 const Event = ({ props, past }) => {
+  console.log(props);
   const dateStart = dateFormat(props.dateStart);
   const dateEnd = dateFormat(props.dateEnd);
   return (
