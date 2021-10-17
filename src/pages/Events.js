@@ -6,11 +6,11 @@ import Footer from "../layout/Footer";
 
 const Events = () => {
   const events = useSelector((state) => state.events);
-  const [currentEvents, setCurrentEvents] = useState([]);
-  const [pastEvents, setPastEvents] = useState([]);
+  // const [currentEvents, setCurrentEvents] = useState([]);
+  // const [pastEvents, setPastEvents] = useState([]);
 
-  // const currentEvents = [];
-  // const pastEvents = [];
+  const currentEvents = [];
+  const pastEvents = [];
   const date = new Date();
   const defaultFormatted = date.toLocaleDateString("en-GB");
 
@@ -19,26 +19,27 @@ const Events = () => {
     const parts = date.split("/");
     return new Date(parts[2], parts[1] - 1, parts[0]);
   };
-  // if (events.length > 0) {
-  //   console.log("eventes **", events);
+  if (events.length > 0) {
+    console.log("eventes **", events);
+    events.forEach((e) => {
+      // let tempDate = dateReformater(e.dateEnd);
+      e.dataEnd < date ? pastEvents.push(e) : currentEvents.push(e);
+      // e.dataEnd < date
+      //   ? setPastEvents([...pastEvents, e])
+      //   : setCurrentEvents([...currentEvents, e]);
+    });
+  }
+
+  // useEffect(() => {
   //   events.forEach((e) => {
-  //     // let tempDate = dateReformater(e.dateEnd);
-  //     // e.dataEnd < date ? pastEvents.push(e) : currentEvents.push(e);
   //     e.dataEnd < date
   //       ? setPastEvents([...pastEvents, e])
   //       : setCurrentEvents([...currentEvents, e]);
   //   });
-  // }
+  //   console.log(pastEvents)
 
-  useEffect(() => {
-    events.forEach((e) => {
-      e.dataEnd < date
-        ? setPastEvents([...pastEvents, e])
-        : setCurrentEvents([...currentEvents, e]);
-    });
-
-    return () => {};
-  }, [events]);
+  //   return () => {};
+  // }, [events]);
 
   return (
     <div>

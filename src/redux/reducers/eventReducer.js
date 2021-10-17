@@ -36,11 +36,12 @@ export const initializeEvents = () => {
 
 export const createEvent = (content) => {
   return async (dispatch) => {
-    const newEventId = await eventService.createNew(content);
-    console.log("this is new event", newEventId);
+    const addedEvent = await eventService.createNew(content);
+    console.log("********,", addedEvent);
+    // console.log("****** this is new event ", newEventId);
     dispatch({
       type: "NEW_EVENT",
-      data: { ...content, newEventId },
+      data: addedEvent,
     });
   };
 };

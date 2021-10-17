@@ -29,7 +29,22 @@ const createNew = async (content) => {
 
   try {
     const res = await db.collection("events").add(content);
-    return String(res.id);
+    const id = String(res.id);
+    const addedEvent = await db
+      .collection("events")
+      .doc(id)
+      .get()
+      .then((snapshot) => snapshot.data());
+
+    // const doc = await res.get().data();
+
+    // const addedEvent = await db
+    //   .collection("events")
+    //   .doc(id)
+    //   .get()
+    //   .then((snapshot) => snapshot.data());
+    return { ...addedEvent, id };
+    // return String(res.id);
   } catch (error) {
     console.error("Error adding document: ", error);
   }
