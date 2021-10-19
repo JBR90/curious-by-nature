@@ -23,7 +23,13 @@ const Event = ({ props, past }) => {
           <p className=" text-base font-semibold  ">{`Start date: ${dateStart}`}</p>
           <p className=" text-base font-semibold  ">{`End date:   ${dateEnd}`}</p>
           <p className=" text-base font-semibold  ">{`Time:   ${props.time}`}</p>
-          <p className="mb-4 text-base font-semibold  ">{`Location:   ${props.location}`}</p>
+          <p className=" text-base font-semibold  ">{`Location:   ${props.location}`}</p>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://www.eventbrite.co.uk/e/curious-by-nature-forest-play-autumn-term-tickets-188261754977?aff=ebdssbdestsearch#listing-organizer"
+            className="mb-4 text-blue-800 text-base font-semibold  "
+          >{`Eventbright`}</a>
         </div>
       </div>
     </div>

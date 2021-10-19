@@ -46,10 +46,10 @@ const Contact = () => {
             A better future is possible. Contact us to learn more about our
             mission and work, or to become involved yourself.
           </p>
-          <p className="">email@curious-by-nature.com</p>
-          <p className="mb-4">(555) 555-5555</p>
+          {/* <p className="">curiousbynaturelondon@gmail.com</p> */}
+          {/* <p className="mb-4">(555) 555-5555</p>
           <p className="">Address</p>
-          <p className="mb-4">address 2</p>
+          <p className="mb-4">address 2</p> */}
           <div className="flex py-2 ">
             <FaFacebookF className="mr-3 text-xl cursor-pointer" />
             <FaInstagram className="mr-3 text-2xl cursor-pointer" />
