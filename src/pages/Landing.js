@@ -43,7 +43,7 @@ const Landing = () => {
           />
         </div> */}
 
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bottom-56  w-full  lg:w-4/5 py-4 px-8 sm:px-4  ">
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bottom-56  w-full  lg:w-4/5 py-4 px-8 sm:px  ">
             <p className=" whitespace-pre-wrap  bottom-56  sm:leading-relaxed w-full text-white text-2xl sm:text-4xl ">
               {`Providing outdoor learning opportunities
 to the local community.`}
@@ -97,7 +97,7 @@ outdoor learning opportunities to the local community,
             </div>
             <div className="w-full  py-8  ">
               <div className=" sm:justify-center lg:w-4/5 m-auto px-4 sm:py-10 grid grid-cols-1 sm:grid-cols-2">
-                <div className="flex justify-center sm:justify-start  order-2 sm:order1 m-auto w-full  ">
+                <div className="flex justify-center sm:justify-start sm:px-4 order-2 sm:order1 m-auto w-full  ">
                   <img
                     className="object-cover   overflow-hidden max-h-80   w-11/12  transform transition duration-200"
                     src={landingPic2}

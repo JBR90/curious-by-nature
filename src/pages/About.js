@@ -51,7 +51,7 @@ plan for saving the planet’s most exceptional wild places.`}
           </div>
           {/* --------------------------------------------------------------------------------// Text + Image section 1 // */}
           <div className="w-full bg-white my-8">
-            <div className=" sm:justify-center lg:w-4/5 m-auto px-4  grid grid-cols-1 sm:grid-cols-2">
+            <div className=" sm:justify-center lg:w-4/5 m-auto px-4 py-8  grid grid-cols-1 sm:grid-cols-2">
               <div className="flex justify-center   ">
                 <img
                   className="object-cover   overflow-hidden   w-11/12  "
@@ -87,7 +87,7 @@ plan for saving the planet’s most exceptional wild places.`}
             </div>
           </div>
           {/* --------------------------------------------------------------------------------// Text + Image section 2 // */}
-          <div className="w-full bg-white my-8 ">
+          <div className="w-full bg-white my-8 py-8 ">
             <div className="absolute z-50 left-20 w-full grid grid-cols-8 ">
               <img
                 className=" col-span-3 overflow-hidden opacity-30"

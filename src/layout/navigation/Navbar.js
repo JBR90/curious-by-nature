@@ -128,7 +128,7 @@ const Navbar = ({
             }`}
           >
             <div className="tham-box">
-              <div className="tham-inner bg-black " />
+              <div className="tham-inner bg-background-curious_dark " />
             </div>
           </div>
         </div>
