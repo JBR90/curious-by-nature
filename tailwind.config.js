@@ -17,6 +17,8 @@ module.exports = {
       background: {
         light: "#A8AAA5",
         green: "#F2EBD1",
+        curious_green: "#89CAB8",
+        curious_dark: "#11393A",
       },
     },
     extend: {

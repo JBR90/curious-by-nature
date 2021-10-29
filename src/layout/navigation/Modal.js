@@ -31,7 +31,7 @@ export default function Modal({ navList, handleModal, showModal }) {
               )}
               <div className="flex text-4xl flex-row justify-center space-x-10 mt-10">
                 <FaInstagram className="inline text-5xl mb-1 ml-4 cursor-pointer" />
-                <RiFacebookFill className="inline text-5xl mb-1 ml-4 cursor-pointer " />
+                {/* <RiFacebookFill className="inline text-5xl mb-1 ml-4 cursor-pointer " /> */}
               </div>
             </div>
           </div>

@@ -36,7 +36,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="">
       <Router>
         <ScrollToTop />
         <Navigation handleModal={handleModal} navList={navList} />
