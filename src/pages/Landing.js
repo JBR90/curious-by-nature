@@ -150,9 +150,9 @@ outdoor learning opportunities to the local community,
                     href="https://www.eventbrite.co.uk/o/curious-by-nature-london-35622664273"
                     target="_blank"
                     rel="noreferrer"
-                    className="bg-black z-50 text-white w-32   font-semibold  py-2 px-4 mt-4 mb-4 rounded "
+                    className="bg-black z-50 text-white w-32 text-center  font-semibold  py-2 px-4 mt-4 mb-4 rounded "
                   >
-                    Learn More
+                    Join Us
                   </a>
                 </div>
                 <div className="flex justify-center sm:justify-start sm:px-3    w-full  ">

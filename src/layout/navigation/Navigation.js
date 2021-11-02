@@ -10,13 +10,27 @@ import { RiFacebookFill } from "react-icons/ri";
 //   { id: 3, title: "Links", path: "/links" },
 //   { id: 4, title: "Contact", path: "/contact" },
 // ];
-const Navigation = ({ handleModal, navList }) => {
-  const [navOpen, setNavOpen] = useState(false);
+const Navigation = ({
+  handleModal,
+  handleModalClose,
+  handleHamburger,
+  navList,
+  navOpen,
+  setNavOpen,
+}) => {
+  // const [navOpen, setNavOpen] = useState(false);
 
-  const handleHamburger = () => {
-    setNavOpen(!navOpen);
-    handleModal();
-  };
+  // const handleHamburger = () => {
+  //   setNavOpen(!navOpen);
+  //   handleModal();
+  // };
+
+  // const handleModalClose = () => {
+  //   if (navOpen) {
+  //     handleModal();
+  //     setNavOpen(false);
+  //   }
+  // };
 
   return (
     <div className="absolute z-50 w-screen">
@@ -26,6 +40,7 @@ const Navigation = ({ handleModal, navList }) => {
         handleModal={handleModal}
         navOpen={navOpen}
         setNavOpen={setNavOpen}
+        handleModalClose={handleModalClose}
       />
       {/* <Modal
         navList={navList}

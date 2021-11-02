@@ -8,20 +8,20 @@ import { RiFacebookFill } from "react-icons/ri";
 import logo from "../../images/CBN_LOGO_COLOUR1.svg";
 
 const Navbar = ({
-  navList,
   handleHamburger,
-  handleModal,
+
   navOpen,
-  setNavOpen,
+
+  handleModalClose,
 }) => {
   const setLocation = useLocation();
 
-  const handleModalClose = () => {
-    if (navOpen) {
-      handleModal();
-      setNavOpen(false);
-    }
-  };
+  // const handleModalClose = () => {
+  //   if (navOpen) {
+  //     handleModal();
+  //     setNavOpen(false);
+  //   }
+  // };
 
   return (
     <>
@@ -128,7 +128,13 @@ const Navbar = ({
             }`}
           >
             <div className="tham-box">
-              <div className="tham-inner bg-background-curious_dark " />
+              <div
+                className={`tham-inner ${
+                  setLocation.pathname === "/about"
+                    ? "bg-white"
+                    : "bg-background-curious_dark "
+                }  `}
+              />
             </div>
           </div>
         </div>

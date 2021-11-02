@@ -25,8 +25,22 @@ import { useDispatch } from "react-redux";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
+  const [navOpen, setNavOpen] = useState(false);
+
   const handleModal = () => {
     setShowModal(!showModal);
+  };
+
+  const handleModalClose = () => {
+    if (navOpen) {
+      handleModal();
+      setNavOpen(false);
+    }
+  };
+
+  const handleHamburger = () => {
+    setNavOpen(!navOpen);
+    handleModal();
   };
 
   const dispatch = useDispatch();
@@ -39,7 +53,14 @@ function App() {
     <div className="">
       <Router>
         <ScrollToTop />
-        <Navigation handleModal={handleModal} navList={navList} />
+        <Navigation
+          handleModal={handleModal}
+          handleModalClose={handleModalClose}
+          handleHamburger={handleHamburger}
+          navList={navList}
+          navOpen={navOpen}
+          setNavOpen={setNavOpen}
+        />
 
         {showModal ? (
           <motion.div
@@ -48,7 +69,7 @@ function App() {
             transition={{ delay: 0.2 }}
             exit={{ opacity: 0 }}
           >
-            <Modal navList={navList} />
+            <Modal navList={navList} handleModalClose={handleModalClose} />
           </motion.div>
         ) : (
           <Switch>
