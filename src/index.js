@@ -5,12 +5,14 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import Favicon from "react-favicon";
 
 import { rrfProps } from "../src/services/firebase";
 import { ReactReduxFirebaseProvider } from "react-redux-firebase";
 
 ReactDOM.render(
   <React.StrictMode>
+    <Favicon url="src/images/favicon.ico" />
     <Provider store={store}>
       <ReactReduxFirebaseProvider {...rrfProps}>
         <App />
