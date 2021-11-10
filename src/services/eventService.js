@@ -9,10 +9,10 @@ const getAll = async () => {
   // FIREBASE;
   try {
     const snapshot = await db.collection("events").get();
-    console.log(
-      "test",
-      snapshot.docs.map((doc) => (doc = { ...doc.data(), id: doc.id }))
-    );
+    // console.log(
+    //   "test",
+    //   snapshot.docs.map((doc) => (doc = { ...doc.data(), id: doc.id }))
+    // );
     return snapshot.docs.map((doc) => (doc = { ...doc.data(), id: doc.id }));
   } catch (error) {
     console.log("Error:", error);
@@ -66,9 +66,9 @@ const updateEvent = async (content, id) => {
       .set(content)
       .once("value")
       .then((snap) => {
-        console.log(snap);
+        // console.log(snap);
       });
-    console.log("RES", res.data);
+    // console.log("RES", res.data);
     return res.data;
   } catch (error) {
     console.log(error);
@@ -85,7 +85,7 @@ const deleteEvent = async (id) => {
 
   try {
     const res = await db.collection("events").doc(id).delete();
-    console.log(res);
+    // console.log(res);
     return res;
   } catch (error) {
     console.log(error);

@@ -45,9 +45,9 @@ function App() {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(initializeEvents());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(initializeEvents());
+  // }, [dispatch]);
 
   return (
     <div className="">
@@ -75,7 +75,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Landing} />
             <Route exact path="/about" component={About} />
-            <Route exact path="/join-us" component={Events} />
+            {/* <Route exact path="/join-us" component={Events} /> */}
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/addevent" component={AddEvent} />

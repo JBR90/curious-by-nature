@@ -32,7 +32,6 @@ const Login = () => {
         email: emailRef.current.value,
         password: passwordRef.current.value,
       });
-      console.log(user);
 
       // const user = await dispatch(
       //   userLogin(emailRef.current.value, passwordRef.current.value)
@@ -42,7 +41,6 @@ const Login = () => {
       setCurrentUser(user);
     } catch (err) {
       setError("Failed to login", err.message);
-      console.log(err);
     }
 
     // if (currentUser) {

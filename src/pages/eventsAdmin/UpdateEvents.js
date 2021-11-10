@@ -23,14 +23,14 @@ const UpdateEvents = () => {
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   const events = useSelector((state) => state.events);
-  console.log("events in update events", events);
+
   const history = useHistory();
   // const user = useGetUser();
   // console.log(user);
 
   const handleModal = (e) => {
     const id = e.target.id;
-    console.log(id);
+
     setEventToUpdate(events.find((e) => e.id === id));
     if (addOrUpdate === "update") {
     }
@@ -47,8 +47,6 @@ const UpdateEvents = () => {
   };
 
   const handleUpdate = async (newEventObject, id) => {
-    console.log("in handleUpdate id", id);
-    console.log("in handleUpdate", newEventObject);
     dispatch(updateEvent(newEventObject, id));
   };
 

@@ -45,6 +45,9 @@ const Footer = () => {
           >
             Instagram
           </a>
+          <div>
+            <a href="http://eepurl.com/hLhOBX">Newsletter</a>
+          </div>
         </div>
       </div>
     </div>

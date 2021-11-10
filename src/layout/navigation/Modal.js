@@ -1,5 +1,6 @@
 import React from "react";
 import { FaInstagram } from "react-icons/fa";
+import { BiNews } from "react-icons/bi";
 import { RiFacebookFill } from "react-icons/ri";
 import { useLocation, NavLink } from "react-router-dom";
 
@@ -19,7 +20,7 @@ export default function Modal({
         transition={{ delay: 0.3 }}
         exit={{ opacity: 0 }}
       >
-        <div className="animated fadeIn flex justify-center items-center  inset-0 overflow-y-auto border border-yellow-400 outline-none focus:outline-none w-screen h-screen  ">
+        <div className="animated fadeIn flex justify-center items-center  inset-0 overflow-y-auto border  outline-none focus:outline-none w-screen h-screen  ">
           <div className="relative w-auto my-6 mx-auto max-w-6xl">
             <div className=" flex flex-col justify-center ">
               <NavLink
@@ -70,13 +71,25 @@ export default function Modal({
                   </a>
                 ) : null
               )} */}
-              <a
-                href="https://www.instagram.com/curiousbynaturelondon/"
-                className="flex text-4xl flex-row justify-center space-x-10 mt-10"
-              >
-                <FaInstagram className="inline text-5xl mb-1 ml-4 cursor-pointer" />
-                {/* <RiFacebookFill className="inline text-5xl mb-1 ml-4 cursor-pointer " /> */}
-              </a>
+              <div className="flex justify-center">
+                <a
+                  href="https://www.instagram.com/curiousbynaturelondon/"
+                  className="flex text-4xl flex-row justify-center space-x-10 mt-10"
+                >
+                  <FaInstagram className="inline text-5xl mb-1 ml-4 cursor-pointer" />
+                  {/* <RiFacebookFill className="inline text-5xl mb-1 ml-4 cursor-pointer " /> */}
+                </a>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  alt="Join mailing list"
+                  href="http://eepurl.com/hLhOBX"
+                  className="flex text-4xl flex-row justify-center space-x-10 mt-10"
+                >
+                  <BiNews className="inline text-5xl mb-1 ml-4 cursor-pointer" />
+                  {/* <RiFacebookFill className="inline text-5xl mb-1 ml-4 cursor-pointer " /> */}
+                </a>
+              </div>
             </div>
           </div>
         </div>

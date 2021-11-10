@@ -1,11 +1,8 @@
 import eventService from "../../services/eventService";
 
 const reducer = (state = [], action) => {
-  console.log("ACTION:", action);
-  console.log("state", state);
   switch (action.type) {
     case "NEW_EVENT":
-      console.log("new event");
       return [...state, action.data];
     case "INIT_EVENTS":
       return action.data;
@@ -26,7 +23,7 @@ const reducer = (state = [], action) => {
 export const initializeEvents = () => {
   return async (dispatch) => {
     const events = await eventService.getAll();
-    console.log("EVENTS", events);
+
     dispatch({
       type: "INIT_EVENTS",
       data: events,
@@ -37,7 +34,7 @@ export const initializeEvents = () => {
 export const createEvent = (content) => {
   return async (dispatch) => {
     const addedEvent = await eventService.createNew(content);
-    console.log("********,", addedEvent);
+
     // console.log("****** this is new event ", newEventId);
     dispatch({
       type: "NEW_EVENT",

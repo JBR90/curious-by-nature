@@ -1,8 +1,8 @@
 import authService from "../../services/eventService";
 
 const reducer = (state = [null], action) => {
-  console.log("ACTION:", action);
-  console.log("state", state);
+  // console.log("ACTION:", action);
+  // console.log("state", state);
   switch (action.type) {
     case "USER_LOGIN":
       return [action.data];

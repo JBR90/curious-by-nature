@@ -3,6 +3,7 @@ import NavLinks from "./NavLinks";
 import { useLocation, NavLink } from "react-router-dom";
 import { indigo } from "tailwindcss/colors";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
+import { BiNews } from "react-icons/bi";
 
 import { RiFacebookFill } from "react-icons/ri";
 import logo from "../../images/CBN_LOGO_COLOUR1.svg";
@@ -89,6 +90,15 @@ const Navbar = ({
               className="inline text-2xl mb-1 ml-4 cursor-pointer"
             >
               <FaInstagram className="inline text-2xl mb-1 cursor-pointer" />
+            </a>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              alt="Join mailing list"
+              href="http://eepurl.com/hLhOBX"
+              className="inline text-2xl mb-1 ml-4 cursor-pointer"
+            >
+              <BiNews className="inline text-2xl mb-1 cursor-pointer" />
             </a>
             <div className="inline text-2xl  mb-1 ml-4 cursor-pointer">
               {/* <RiFacebookFill className="inline text-2xl mb-1  cursor-pointer " /> */}

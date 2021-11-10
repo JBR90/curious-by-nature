@@ -27,7 +27,6 @@ const AddEvent = () => {
     };
 
     if (Object.values(newEventObject).includes(" ")) {
-      console.log("error");
       return;
     }
 

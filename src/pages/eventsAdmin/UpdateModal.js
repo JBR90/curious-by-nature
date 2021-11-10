@@ -27,13 +27,11 @@ const UpdateModal = ({
   const history = useHistory();
   const dispatch = useDispatch();
 
-  console.log("event to update", eventToUpdate);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const id = e.target.id;
-    console.log("his is the ID", id);
+
     const newEventObject = {
       eventName: titleRef.current.value,
       location: locationRef.current.value,
@@ -46,7 +44,7 @@ const UpdateModal = ({
     // dispatch(createEvent(newEventObject));
 
     // handleAdd(newEventObject);
-    console.log(addOrUpdate);
+
     if (addOrUpdate === "add") {
       handleAdd(newEventObject);
     } else {

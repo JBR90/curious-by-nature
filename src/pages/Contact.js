@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import emailjs from "emailjs-com";
 import overlay3 from "../images/CBN_illustrations/PNG/porcupine.png";
-
+import { BiNews } from "react-icons/bi";
 import Footer from "../layout/Footer";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 
@@ -26,20 +26,20 @@ const Contact = () => {
           setTimeout(() => {
             setMessage("");
           }, 3000);
-          console.log(result.text);
+          // console.log(result.text);
         },
         (error) => {
           setErrorMessage("Error : Your message has not been sent");
           setTimeout(() => {
             setErrorMessage("");
           }, 3000);
-          console.log(error.text);
+          // console.log(error.text);
         }
       );
     e.target.reset();
   };
   return (
-    <div className="w-screen relative top-9 h-screen  ">
+    <div className="w-screen relative md:top-20 h-screen  ">
       {/* <div className="absolute  w-full bottom-28 left-20  ">
         <img className="w-80 " src={overlay3} alt="" />
       </div> */}
@@ -49,13 +49,26 @@ const Contact = () => {
           <p className="text-xl mb-5 ">
             Get in touch to find out about who we are and what we do.
           </p>
+          <p className="text-xl mb-5 ">
+            <a
+              className="font-semibold cursor-pointer"
+              target="_blank"
+              rel="noreferrer"
+              alt="Join mailing list"
+              href="http://eepurl.com/hLhOBX"
+            >
+              Sign up
+            </a>{" "}
+            to our newsletter.
+          </p>
           {/* <p className="">curiousbynaturelondon@gmail.com</p> */}
           {/* <p className="mb-4">(555) 555-5555</p>
           <p className="">Address</p>
           <p className="mb-4">address 2</p> */}
           <div className="flex py-2 ">
-            <FaFacebookF className="mr-3 text-xl cursor-pointer" />
+            {/* <FaFacebookF className="mr-3 text-xl cursor-pointer" /> */}
             <FaInstagram className="mr-3 text-2xl cursor-pointer" />
+            <BiNews className="mr-3 text-2xl cursor-pointer" />
           </div>
           <img className="w-80 " src={overlay3} alt="" />
         </div>
